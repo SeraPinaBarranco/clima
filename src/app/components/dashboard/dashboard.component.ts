@@ -59,7 +59,9 @@ export class DashboardComponent implements OnInit {
     
 
     this._clima.getClimaPosterior(this.ciudad).subscribe(data=>{
-      this.datos= data;
+      
+      //this.datos= data.parse(data);
+      //console.log(typeof(this.datos));
       //this.tempPost = data.list[0].main.temp;
 
       //this.presionPost= data.list[0].main.pressure;
