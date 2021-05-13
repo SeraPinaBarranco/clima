@@ -29,6 +29,22 @@
                     <p><b>Humedad: </b>{{humedad}}</p>
                     <p><b>Clima: </b>{{clima}}</p>
                 </div>
-            </div>
+                
+                <button class="btn btn-primary p-2 mb-2 ml-2 mr-2" (click)="diasPosteriores()">Ver dias posteriores</button>
+                
+            </div>       
+            
+            <div *ngIf="posteriores" class="card mt-3">
+              <!--<button class="btn botonmin col-1" ><i><img src="../../../assets/minimize.ico" alt="" width=20 height=10></i></button>-->
+              <div class="col-1">
+                <span class="badge rounded-pill bg-primary blanco puntero" (click)="ocultarDiasPosteriores()"> <b>Ocultar</b> </span>
+              </div>
+              <div class="card-body" >
+                  <p *ngFor="let dato of datos; let i = index"><b>Temperatura:</b> {{ i }}ºC</p>
+                  <!--<p><b>Humedad: </b>{{humedad}}</p>
+                  <p><b>Clima: </b>{{clima}}</p>
+                  <p><b>Presión: </b>{{presionPost}} bares</p>-->
+              </div>
+          </div>  
     </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ClimaService } from 'src/app/services/clima.service';
 
 @Component({
@@ -15,6 +16,14 @@ export class DashboardComponent implements OnInit {
   query=false;
   loading=false;
   mostrarError= false;
+  posteriores= false;
+  datos: Array<any>=[];
+
+  //Propiedades dias posteriores
+  tempPost='';
+  presionPost= 0;
+
+  minimizar="https://www.flaticon.com/authors/icongeek26";
 
   constructor(private _clima: ClimaService) { }
 
@@ -43,5 +52,22 @@ export class DashboardComponent implements OnInit {
       this.mostrarError=false;
       this.ciudad= '';
     }, 3000);
+  }
+
+  diasPosteriores(){
+    this.posteriores= true;
+    
+
+    this._clima.getClimaPosterior(this.ciudad).subscribe(data=>{
+      this.datos= data;
+      //this.tempPost = data.list[0].main.temp;
+
+      //this.presionPost= data.list[0].main.pressure;
+      //console.log(this.datos);
+    })
+  }
+
+  ocultarDiasPosteriores(){
+    this.posteriores=false;
   }
 }

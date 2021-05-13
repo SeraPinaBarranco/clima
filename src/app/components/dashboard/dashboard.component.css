@@ -5,3 +5,11 @@ input{
 .size{
     font-size: 2rem;
 }
+
+.blanco{
+    color:white;
+}
+
+.puntero{
+    cursor: pointer;
+}
