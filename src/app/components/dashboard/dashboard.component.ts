@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   loading=false;
   mostrarError= false;
   posteriores= false;
-  datos: Array<any>=[];
+  datos: any=[];
 
   //Propiedades dias posteriores
   tempPost='';
@@ -59,8 +59,9 @@ export class DashboardComponent implements OnInit {
     
 
     this._clima.getClimaPosterior(this.ciudad).subscribe(data=>{
+      console.log(data.list[0].weather[0].description);
       
-      //this.datos= data.parse(data);
+      this.datos= data.list;
       //console.log(typeof(this.datos));
       //this.tempPost = data.list[0].main.temp;
 

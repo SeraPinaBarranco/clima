@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ClimaInterface } from '../models/clima.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +18,9 @@ export class ClimaService {
     return this.http.get(url);
   }
 
-  getClimaPosterior(ciudad:string):Observable<any>{
+  getClimaPosterior(ciudad:string){
     let url= `https://api.openweathermap.org/data/2.5/forecast?q=${ciudad}&appid=${this.keyPosteriores}&units=metric&lang=es`;
-    return this.http.get(url);
+    return this.http.get<ClimaInterface>(url);
 
   }
 }
