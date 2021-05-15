@@ -28,38 +28,38 @@
                     <p><b>Humedad: </b>{{humedad}}</p>
                     <p><b>Clima: </b>{{clima}}</p>
                 </div>
-                
+
                 <button class="btn btn-primary p-2 mb-2 ml-2 mr-2" (click)="diasPosteriores()">Ver dias posteriores</button>
-                
-            </div>       
-            
+
+            </div>
+
             <div *ngIf="posteriores" class="card mt-3">
-              
+
               <div class="col-1">
                 <span class="badge rounded-pill bg-primary blanco puntero" (click)="ocultarDiasPosteriores()"> <b>Ocultar</b> </span>
               </div>
               <div class="card-body mb-3" *ngFor="let dato of datos;let indice=index">
-                  <h4 loading="lazy"><b>Día: {{dato.dt_txt | date:'MM/dd/yyyy  HH:mm'}}</b>, <b>Hora: {{dato.dt_txt | date:'HH:mm'}}</b> </h4>
+                  <h4 loading="lazy"><b>Día: {{dato.dt_txt | date:'MM/dd/yyyy'}}</b>, <b>Hora: {{dato.dt_txt | date:'HH:mm'}}</b> </h4>
                   <p loading="lazy"><b>Pronóstico: </b>{{dato.weather[0].description | uppercase}}</p>
-          
+
                   <p  *ngIf="dato.main.temp < 15"><b>Temperatura: </b><span class="badge rounded-pill bg-primary">{{ dato.main.temp }} ºC</span></p>
                   <p  *ngIf="dato.main.temp >= 15 && dato.main.temp < 25"><b>Temperatura: </b><span class="badge rounded-pill bg-warning">{{ dato.main.temp }} ºC</span></p>
-                  <p  *ngIf="dato.main.temp > 25"><b>Temperatura: </b><span class="badge rounded-pill bg-danger">{{ dato.main.temp }} ºC</span></p>                 
+                  <p  *ngIf="dato.main.temp > 25"><b>Temperatura: </b><span class="badge rounded-pill bg-danger">{{ dato.main.temp }} ºC</span></p>
 
                   <p loading="lazy"><b>Temperatura máxima: </b>{{ dato.main.temp_max }} ºC</p>
                   <p loading="lazy"><b>Temperatura temp_min: </b>{{ dato.main.temp_min }} ºC</p>
                   <p loading="lazy"><b>Presión: </b>{{ dato.main.pressure }} bares</p>
                   <p loading="lazy"><b>Humedad: </b>{{ dato.main.humidity }}%</p>
-                  
+
 
               </div>
-            </div>  
-        </div>       
-    
+            </div>
+        </div>
 
-    </div>    
 
-</div> 
+    </div>
+
+</div>
 
 
 
